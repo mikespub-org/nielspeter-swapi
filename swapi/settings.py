@@ -1,5 +1,5 @@
 import os
-# import django_heroku
+import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -175,4 +175,5 @@ INTERNAL_IPS = [
     'localhost',
 ]
 
-# django_heroku.settings(locals())
+if not os.getenv("TRAVIS"):
+    django_heroku.settings(locals())
