@@ -5,9 +5,9 @@ language: python
 python:
   - "3.8"
 
-install: pip install -r requirements.txt
+install: pip install pipenv
 
-script: python manage.py test
+script: pipenv run python manage.py test
 
 notifications:
   email: true
