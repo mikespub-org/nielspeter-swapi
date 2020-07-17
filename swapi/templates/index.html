@@ -19,7 +19,7 @@
         <div class="col-lg-8 col-md-8 col-sm-8">
             <h1 class="center">Try it now!</h1>
             <div class="input-group">
-                <span class="input-group-addon">https://swapi.dev/api/</span>
+                <span class="input-group-addon">{{ request.build_absolute_uri }}api/</span>
                 <label for="interactive" class="sr-only">Try API</label>
                 <input id="interactive" type="text" class="form-control" placeholder="people/1/">
                 <span class="input-group-btn">
