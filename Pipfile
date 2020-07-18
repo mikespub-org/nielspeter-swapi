@@ -31,6 +31,7 @@ stripe = "==2.48.0"
 urllib3 = "==1.25.9"
 whitenoise = "==5.1.0"
 Django = "==3.0.8"
+django-htmlmin = "*"
 
 [requires]
 python_version = "3.8"
