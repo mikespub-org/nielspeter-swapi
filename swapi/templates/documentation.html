@@ -4,9 +4,9 @@
 {% block mainbody %}
 
     <div class="row">
-        <div class="col-sm-3 col-md-3">
+        <div class="col-md-3">
             <h5>Getting started</h5>
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item"><a href="#intro">Introduction</a></li>
                 <li class="list-group-item"><a href="#start">Getting started</a></li>
                 <li class="list-group-item"><a href="#base">Base URL</a></li>
@@ -16,12 +16,12 @@
                 <li class="list-group-item"><a href="#search">Searching</a></li>
             </ul>
             <h5>Encodings</h5>
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item"><a href="#json">JSON</a></li>
                 <li class="list-group-item"><a href="#wookiee">Wookiee</a></li>
             </ul>
             <h5>Resources</h5>
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item"><a href="#root">Root</a></li>
                 <li class="list-group-item"><a href="#people">People</a></li>
                 <li class="list-group-item"><a href="#films">Films</a></li>
@@ -31,7 +31,7 @@
                 <li class="list-group-item"><a href="#planets">Planets</a></li>
             </ul>
             <h5>Helper libraries</h5>
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item"><a href="#python">Python</a></li>
                 <li class="list-group-item"><a href="#javascript">Javascript</a></li>
                 <li class="list-group-item"><a href="#android">Android</a></li>
@@ -48,7 +48,7 @@
             </ul>
         </div>
 
-        <div class="col-md-9 col-sm-9">
+        <div class="col-md-9">
             {% markdown %}
                 {% include "docs.md" %}
             {% endmarkdown %}

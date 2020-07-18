@@ -1,20 +1,10 @@
-
-.center {
-    text-align: center;
+.text-primary {
+    color: #FFE300 !important;
 }
 
-.yellow {
-    color: #FFE300;
-}
-
-.pad_top {
-    padding-top: 34px;
-}
-
-.pad_bot {
-    padding-bottom: 34px;
-}
-
-.subscribe_btn {
-    margin-left: -100px!;
+pre {
+    background: #fff;
+    color: #333;
+    padding: 30px;
+    border-radius: 10px;
 }
