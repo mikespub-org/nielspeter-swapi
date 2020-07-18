@@ -13,11 +13,11 @@ Welcome to the swapi, the Star Wars API! This documentation should help you fami
 
 Let's make our first API request to the Star Wars API!
 
-Open up a terminal and use [curl](http://curl.haxx.se) or [httpie](http://httpie.org) to make an API request for a resource. In the example below, we're trying to get the first planet, Tatooine:
+Open up a terminal and use [curl](https://curl.haxx.se) or [httpie](https://httpie.org) to make an API request for a resource. In the example below, we're trying to get the first planet, Tatooine:
 
     http swapi.dev/api/planets/1/
 
-We'll use [httpie](http://httpie.org) for our examples as it displays responses nicely and gives us a whole lot more useful information. If you don't want to download httpie, just use the *curl* command instead.
+We'll use [httpie](https://httpie.org) for our examples as it displays responses nicely and gives us a whole lot more useful information. If you don't want to download httpie, just use the *curl* command instead.
 
 Here is the response we get:
 
@@ -78,7 +78,7 @@ All resources support a `search` parameter that filters the set of resources ret
 https://swapi.dev/api/people/?search=r2
 ```
 
- All searches will use case-insensitive partial matches on the set of search fields. To see the set of search fields for each resource, check out the individual resource documentation. For more information on advanced search terms see [here](http://www.django-rest-framework.org/api-guide/filtering/#searchfilter).
+ All searches will use case-insensitive partial matches on the set of search fields. To see the set of search fields for each resource, check out the individual resource documentation. For more information on advanced search terms see [here](https://www.django-rest-framework.org/api-guide/filtering/#searchfilter).
 
 #Encodings
 - - -
@@ -652,7 +652,7 @@ A Planet resource is a large mass, planet or planetoid in the Star Wars Universe
 
 There are a bunch of helper libraries available for consuming the Star Wars API in a native programming language.
 
-![helper_library_gif](http://i.imgur.com/l02u363.gif)
+![helper_library_gif](https://i.imgur.com/l02u363.gif)
 
 <a name="python"></a>
 ##Python
@@ -724,10 +724,10 @@ There are a bunch of helper libraries available for consuming the Star Wars API 
 <a name="fsharp"></a>
 ## F# #
 
-- [fsharp-swapi](https://github.com/evelinag/fsharp-swapi) by [Evelina Gabasova](http://evelinag.com/).
+- [fsharp-swapi](https://github.com/evelinag/fsharp-swapi) by [Evelina Gabasova](https://evelinag.com/).
 
 ## Elixir
 
-- [swapi.ex](https://github.com/twhitacre/swapi.ex) by [Tim Whitacre](http://timw.co/).
-- [ex_swapi](https://github.com/mrkjlchvz/ex_swapi) by [Mark Chavez](http://markjoelchavez.com).
+- [swapi.ex](https://github.com/twhitacre/swapi.ex) by [Tim Whitacre](https://timw.co/).
+- [ex_swapi](https://github.com/mrkjlchvz/ex_swapi) by [Mark Chavez](https://markjoelchavez.com).
 - [elixir-swapi](https://github.com/kylesurowiec/swapi-elixir) by [Kyle Surowiec](https://github.com/kylesurowiec).
