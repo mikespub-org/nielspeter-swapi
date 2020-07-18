@@ -8,3 +8,7 @@ pre {
     padding: 30px;
     border-radius: 10px;
 }
+
+.modal-backdrop {
+    z-index: 0;
+}
