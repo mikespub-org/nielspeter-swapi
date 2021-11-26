@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  swapi:
+    image: ghcr.io/nielspeter/swapi:master
+    ports:
+    - 8000:8000
+
+
