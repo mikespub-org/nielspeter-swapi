@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from rest_framework import serializers
 
 from .models import (
@@ -13,7 +11,6 @@ from .models import (
 
 
 class PeopleSerializer(serializers.HyperlinkedModelSerializer):
-
     homeworld = serializers.HyperlinkedRelatedField(
         read_only=True,
         view_name="planet-detail"
@@ -42,7 +39,6 @@ class PeopleSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class PlanetSerializer(serializers.HyperlinkedModelSerializer):
-
     class Meta:
         model = Planet
         fields = (
@@ -64,7 +60,6 @@ class PlanetSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class FilmSerializer(serializers.HyperlinkedModelSerializer):
-
     class Meta:
         model = Film
         fields = (
@@ -73,7 +68,7 @@ class FilmSerializer(serializers.HyperlinkedModelSerializer):
             "opening_crawl",
             "director",
             "producer",
-	    "release_date",
+            "release_date",
             "characters",
             "planets",
             "starships",
@@ -86,7 +81,6 @@ class FilmSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class SpeciesSerializer(serializers.HyperlinkedModelSerializer):
-
     homeworld = serializers.HyperlinkedRelatedField(
         read_only=True,
         view_name='planet-detail'
@@ -114,7 +108,6 @@ class SpeciesSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class VehicleSerializer(serializers.HyperlinkedModelSerializer):
-
     pilots = serializers.HyperlinkedRelatedField(
         many=True,
         read_only=True,
@@ -144,7 +137,6 @@ class VehicleSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class StarshipSerializer(serializers.HyperlinkedModelSerializer):
-
     pilots = serializers.HyperlinkedRelatedField(
         many=True,
         read_only=True,
@@ -173,4 +165,3 @@ class StarshipSerializer(serializers.HyperlinkedModelSerializer):
             "edited",
             "url"
         )
-

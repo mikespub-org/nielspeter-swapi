@@ -1,12 +1,12 @@
-from __future__ import unicode_literals
-
-from django.conf.urls import patterns, url, include
+from django.conf import settings
+from django.conf.urls import include
 from django.contrib import admin
-admin.autodiscover()
-
+from django.urls import path
 from rest_framework import routers
 
+from resources import schemas
 from resources import views
+from .views import index, documentation, about, stats, stripe_donation
 
 router = routers.DefaultRouter()
 
@@ -17,19 +17,25 @@ router.register(r"species", views.SpeciesViewSet)
 router.register(r"vehicles", views.VehicleViewSet)
 router.register(r"starships", views.StarshipViewSet)
 
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path("", index, name="homepage"),
+    path("documentation", documentation, name="documentation"),
+    path("about", about, name="about"),
+    path("stats", stats, name="statistics"),
+    path("stripe/donation", stripe_donation, name="donation"),
+    path("api/people/schema", schemas.people),
+    path("api/planets/schema", schemas.planets),
+    path("api/films/schema", schemas.films),
+    path("api/species/schema", schemas.species),
+    path("api/vehicles/schema", schemas.vehicles),
+    path("api/starships/schema", schemas.starships),
+    path("api/", include(router.urls), name="api"),
+]
 
-urlpatterns = patterns("",
-    url(r"^admin/", include(admin.site.urls)),
-    url(r"^$", "swapi.views.index"),
-    url(r"^documentation$", "swapi.views.documentation"),
-    url(r"^about$", "swapi.views.about"),
-    url(r"^stats$", "swapi.views.stats"),
-    url(r"^stripe/donation", "swapi.views.stripe_donation"),
-    url(r"^api/people/schema$", "resources.schemas.people"),
-    url(r"^api/planets/schema$", "resources.schemas.planets"),
-    url(r"^api/films/schema$", "resources.schemas.films"),
-    url(r"^api/species/schema$", "resources.schemas.species"),
-    url(r"^api/vehicles/schema$", "resources.schemas.vehicles"),
-    url(r"^api/starships/schema$", "resources.schemas.starships"),
-    url(r"^api/", include(router.urls)),
-)
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ]
