@@ -1,3 +1,6 @@
 [remote "upstream"]
 	url = https://github.com/nielspeter/swapi.git
 	fetch = +refs/heads/*:refs/remotes/upstream/*
+[remote "leonidpodriz"]
+	url = https://github.com/leonidpodriz/swapi.git
+	fetch = +refs/heads/*:refs/remotes/leonidpodriz/*
