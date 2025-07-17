@@ -4,9 +4,9 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 
-from resources import schemas
-from resources import views
-from .views import index, documentation, about, stats, stripe_donation
+from resources import schemas, views
+
+from .views import about, documentation, index, stats, stripe_donation
 
 router = routers.DefaultRouter()
 
@@ -18,7 +18,7 @@ router.register(r"vehicles", views.VehicleViewSet)
 router.register(r"starships", views.StarshipViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("", index, name="homepage"),
     path("documentation", documentation, name="documentation"),
     path("about", about, name="about"),
@@ -37,5 +37,5 @@ if settings.DEBUG:
     import debug_toolbar
 
     urlpatterns += [
-        path('__debug__/', include(debug_toolbar.urls)),
+        path("__debug__/", include(debug_toolbar.urls)),
     ]

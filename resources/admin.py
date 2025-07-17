@@ -1,14 +1,6 @@
 from django.contrib import admin
 
-from .models import (
-    People,
-    Planet,
-    Film,
-    Starship,
-    Vehicle,
-    Species
-
-)
+from .models import Film, People, Planet, Species, Starship, Vehicle
 
 classes = [People, Planet, Film, Starship, Vehicle, Species]
 

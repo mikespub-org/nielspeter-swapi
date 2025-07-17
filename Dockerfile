@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM python:2
+FROM python:3
 ENV PYTHONUNBUFFERED=1
 RUN apt-get update && apt-get install -y libmemcached-dev
 WORKDIR /code

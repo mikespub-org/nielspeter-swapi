@@ -2,7 +2,7 @@ from django.db import models
 
 
 class DateTimeModel(models.Model):
-    """ A base model with created and edited datetime fields """
+    """A base model with created and edited datetime fields"""
 
     class Meta:
         abstract = True
@@ -17,11 +17,11 @@ class EditableModel(models.Model):
     A model with a boolean that determins the read/write state of the model
     """
 
-    editable = models.NullBooleanField()
+    editable = models.BooleanField(null=True, blank=True)
 
 
 class Planet(DateTimeModel):
-    """ A planet i.e. Tatooine """
+    """A planet i.e. Tatooine"""
 
     def __unicode__(self):
         return self.name
@@ -46,7 +46,7 @@ class Planet(DateTimeModel):
 
 
 class People(DateTimeModel):
-    """ A person i.e. - Luke Skywalker """
+    """A person i.e. - Luke Skywalker"""
 
     def __unicode__(self):
         return self.name
@@ -67,7 +67,9 @@ class People(DateTimeModel):
 
     gender = models.CharField(max_length=40, blank=True)
 
-    homeworld = models.ForeignKey(Planet, related_name="residents", on_delete=models.PROTECT)
+    homeworld = models.ForeignKey(
+        Planet, related_name="residents", on_delete=models.PROTECT
+    )
 
 
 class Transport(DateTimeModel):
@@ -97,7 +99,7 @@ class Transport(DateTimeModel):
 
 
 class Starship(Transport):
-    """ A starship is a transport with a hypderdrive """
+    """A starship is a transport with a hypderdrive"""
 
     hyperdrive_rating = models.CharField(max_length=40)
 
@@ -105,23 +107,15 @@ class Starship(Transport):
 
     starship_class = models.CharField(max_length=40)
 
-    pilots = models.ManyToManyField(
-        People,
-        related_name="starships",
-        blank=True
-    )
+    pilots = models.ManyToManyField(People, related_name="starships", blank=True)
 
 
 class Vehicle(Transport):
-    """ A vehicle is anything without hyperdrive capability """
+    """A vehicle is anything without hyperdrive capability"""
 
     vehicle_class = models.CharField(max_length=40)
 
-    pilots = models.ManyToManyField(
-        People,
-        related_name="vehicles",
-        blank=True
-    )
+    pilots = models.ManyToManyField(People, related_name="vehicles", blank=True)
 
 
 class Species(DateTimeModel):
@@ -146,7 +140,9 @@ class Species(DateTimeModel):
 
     average_lifespan = models.CharField(max_length=40)
 
-    homeworld = models.ForeignKey(Planet, blank=True, null=True, on_delete=models.PROTECT)
+    homeworld = models.ForeignKey(
+        Planet, blank=True, null=True, on_delete=models.PROTECT
+    )
 
     language = models.CharField(max_length=40)
 
@@ -154,7 +150,7 @@ class Species(DateTimeModel):
 
 
 class Film(DateTimeModel):
-    """ A film i.e. The Empire Strikes Back (which is also the best film) """
+    """A film i.e. The Empire Strikes Back (which is also the best film)"""
 
     def __unicode__(self):
         return self.title
@@ -171,33 +167,12 @@ class Film(DateTimeModel):
 
     release_date = models.DateField()
 
-    characters = models.ManyToManyField(
-        People,
-        related_name="films",
-        blank=True
-    )
+    characters = models.ManyToManyField(People, related_name="films", blank=True)
 
-    planets = models.ManyToManyField(
-        Planet,
-        related_name="films",
-        blank=True
-    )
+    planets = models.ManyToManyField(Planet, related_name="films", blank=True)
 
-    starships = models.ManyToManyField(
-        Starship,
-        related_name="films",
-        blank=True
-    )
+    starships = models.ManyToManyField(Starship, related_name="films", blank=True)
 
-    vehicles = models.ManyToManyField(
-        Vehicle,
-        related_name="films",
-        blank=True
-    )
+    vehicles = models.ManyToManyField(Vehicle, related_name="films", blank=True)
 
-    species = models.ManyToManyField(
-        Species,
-        related_name="films",
-        blank=True
-    )
-
+    species = models.ManyToManyField(Species, related_name="films", blank=True)

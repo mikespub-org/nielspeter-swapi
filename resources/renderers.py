@@ -3,7 +3,7 @@ from rest_framework import renderers
 
 class WookieeRenderer(renderers.JSONRenderer):
     media_type = "application/json"
-    charset = 'utf-8'
+    charset = "utf-8"
     format = "wookiee"
     lookup = {
         "a": "ra",
@@ -38,9 +38,7 @@ class WookieeRenderer(renderers.JSONRenderer):
         encoded_data = super(WookieeRenderer, self).render(
             data, media_type, renderer_context
         )
-        return self.translate_to_wookie(
-            encoded_data.decode('utf-8')
-        ).encode("utf-8")
+        return self.translate_to_wookie(encoded_data.decode("utf-8")).encode("utf-8")
 
     def translate_to_wookie(self, data):
         translated_data = ""

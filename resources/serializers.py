@@ -1,19 +1,18 @@
 from rest_framework import serializers
 
 from .models import (
+    Film,
     People,
     Planet,
-    Film,
     Species,
-    Vehicle,
     Starship,
+    Vehicle,
 )
 
 
 class PeopleSerializer(serializers.HyperlinkedModelSerializer):
     homeworld = serializers.HyperlinkedRelatedField(
-        read_only=True,
-        view_name="planet-detail"
+        read_only=True, view_name="planet-detail"
     )
 
     class Meta:
@@ -55,7 +54,7 @@ class PlanetSerializer(serializers.HyperlinkedModelSerializer):
             "films",
             "created",
             "edited",
-            "url"
+            "url",
         )
 
 
@@ -76,14 +75,13 @@ class FilmSerializer(serializers.HyperlinkedModelSerializer):
             "species",
             "created",
             "edited",
-            "url"
+            "url",
         )
 
 
 class SpeciesSerializer(serializers.HyperlinkedModelSerializer):
     homeworld = serializers.HyperlinkedRelatedField(
-        read_only=True,
-        view_name='planet-detail'
+        read_only=True, view_name="planet-detail"
     )
 
     class Meta:
@@ -103,15 +101,13 @@ class SpeciesSerializer(serializers.HyperlinkedModelSerializer):
             "films",
             "created",
             "edited",
-            "url"
+            "url",
         )
 
 
 class VehicleSerializer(serializers.HyperlinkedModelSerializer):
     pilots = serializers.HyperlinkedRelatedField(
-        many=True,
-        read_only=True,
-        view_name='people-detail'
+        many=True, read_only=True, view_name="people-detail"
     )
 
     class Meta:
@@ -132,15 +128,13 @@ class VehicleSerializer(serializers.HyperlinkedModelSerializer):
             "films",
             "created",
             "edited",
-            "url"
+            "url",
         )
 
 
 class StarshipSerializer(serializers.HyperlinkedModelSerializer):
     pilots = serializers.HyperlinkedRelatedField(
-        many=True,
-        read_only=True,
-        view_name="people-detail"
+        many=True, read_only=True, view_name="people-detail"
     )
 
     class Meta:
@@ -163,5 +157,5 @@ class StarshipSerializer(serializers.HyperlinkedModelSerializer):
             "films",
             "created",
             "edited",
-            "url"
+            "url",
         )
